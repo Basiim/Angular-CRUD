@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   { path: 'employees', component: EmployeeListComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'employees/edit/:emp', component: EmployeeFormComponent },
   { path: 'employees/:msg', component: EmployeeListComponent },
   { path: 'edit/:id', component: EmployeeFormComponent },
+  { path: 'error', component: ErrorComponent },
 ];
 
 @NgModule({

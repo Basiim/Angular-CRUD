@@ -1,4 +1,4 @@
-<h2>Demo Employee List</h2>
+<h2>Employee List</h2>
 <div class="form-group" *ngIf="employees != null || employees == []; else new">
   <table class="table table-striped">
     <thead>
@@ -37,14 +37,9 @@
       </tr>
     </tbody>
   </table>
-  <a routerLink="/employees/add" class="btn btn-primary">Add User</a>
+  <a routerLink="/employees/add" class="btn btn-primary">Add Employee</a>
 </div>
-<ng-template #new>
 
-  <table class="form-group">
-    <p style="align-content: center;">
-      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-      Fetching Employee List...
-    </p>
-  </table>
+<ng-template #new>
+  <app-spinner [message]="'Loading Employee List...'"></app-spinner>
 </ng-template>
