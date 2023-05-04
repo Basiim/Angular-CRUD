@@ -1,0 +1,50 @@
+<h2>Demo Employee List</h2>
+<div class="form-group" *ngIf="employees != null || employees == []; else new">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">ID</th>
+        <th scope="col">Department</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr scope="row" *ngFor="let employee of employees; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ employee.name }}</td>
+        <td>
+          {{ employee.department | uppercase | slice : 0 : 2 }}{{ employee.id }}
+        </td>
+        <td>{{ employee.department }}</td>
+        <td>
+          <span>
+            <a routerLink="/employees/view/{{ employee.id }}" class="btn btn-success"><mat-icon aria-hidden="false"
+                fontIcon="visibility"></mat-icon></a>
+          </span>
+        </td>
+        <td>
+          <a routerLink="/employees/edit/{{ employee.id }}" class="btn btn-primary"><mat-icon aria-hidden="false"
+              fontIcon="edit"></mat-icon></a>
+        </td>
+        <td>
+          <a (click)="deleteEmployee(employee.id)" class="btn btn-danger"><mat-icon aria-hidden="false"
+              fontIcon="delete"></mat-icon></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/employees/add" class="btn btn-primary">Add User</a>
+</div>
+<ng-template #new>
+
+  <table class="form-group">
+    <p style="align-content: center;">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+      Fetching Employee List...
+    </p>
+  </table>
+</ng-template>

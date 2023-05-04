@@ -1,0 +1,41 @@
+<h2>Employee Details</h2>
+<table class="table table-striped" *ngIf="employee; else new">
+  <thead>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <td>{{ employee.name }}</td>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <td>
+        {{ employee.department | uppercase | slice : 0 : 2 }}{{ employee.id }}
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <th>Department</th>
+      <td>{{ employee.department }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ employee.email }}</td>
+    </tr>
+    <tr>
+      <th>Salary</th>
+      <td>{{ employee.salary }}</td>
+    </tr>
+  </tbody>
+</table>
+<a routerLink="/" class="btn btn-success">Back To List</a>
+
+<ng-template #new>
+  <table class="form-group">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    Fetching Employee Data...
+  </table>
+</ng-template>

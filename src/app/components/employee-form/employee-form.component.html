@@ -1,0 +1,60 @@
+{{ employee | json }}
+<div class="form-group">
+  <label for="name">Name</label>
+  <input
+    type="text"
+    class="form-control"
+    id="name"
+    required
+    [(ngModel)]="employee.name"
+    name="name"
+    autocomplete="off"
+  />
+</div>
+<div class="form-group">
+  <label for="email">Email</label>
+  <input
+    type="text"
+    class="form-control"
+    id="email"
+    required
+    [(ngModel)]="employee.email"
+    name="email"
+    autocomplete="off"
+  />
+</div>
+<div class="form-group">
+  <label for="salary">Salary</label>
+  <input
+    type="text"
+    class="form-control"
+    id="salary"
+    required
+    [(ngModel)]="employee.salary"
+    name="salary"
+    autocomplete="off"
+  />
+</div>
+<div class="form-group">
+  <label for="power">Department</label>
+  <select
+    class="form-control"
+    id="power"
+    required
+    [(ngModel)]="employee.department"
+    name="power"
+    autocomplete="off"
+  >
+    <option *ngFor="let dept of depts" [value]="dept">{{ dept }}</option>
+  </select>
+</div>
+<div class="form-group" *ngIf="employee.id != null; else new">
+  <a (click)="editEmployee()" class="btn btn-primary">Edit</a>
+  <a routerLink="/" class="btn btn-danger">Cancel</a>
+</div>
+<ng-template #new>
+  <div class="form-group">
+    <a (click)="addEmployee()" class="btn btn-primary">Submit</a>
+    <a routerLink="/" class="btn btn-danger">Cancel</a>
+  </div>
+</ng-template>
