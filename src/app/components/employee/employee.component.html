@@ -16,7 +16,6 @@
       </td>
       <td></td>
     </tr>
-
     <tr>
       <th>Department</th>
       <td>{{ employee.department }}</td>
@@ -34,8 +33,5 @@
 <a routerLink="/" class="btn btn-success">Back To List</a>
 
 <ng-template #new>
-  <table class="form-group">
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-    Fetching Employee Data...
-  </table>
+  <app-spinner [message]="'Loading Employee Data...'"></app-spinner>
 </ng-template>

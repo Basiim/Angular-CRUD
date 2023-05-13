@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { ErrorComponent } from './components/error/error.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ToastrModule } from 'ngx-toastr';
     EmployeeListComponent,
     EmployeeComponent,
     EmployeeFormComponent,
+    ErrorComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +36,11 @@ import { ToastrModule } from 'ngx-toastr';
     MatProgressSpinnerModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
+      closeButton: true,
+      timeOut: 3000,
     }),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
